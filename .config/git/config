@@ -1,0 +1,30 @@
+[user]
+	name = A Ottr
+	email = alex@ottr.foo
+
+[core]
+	editor = nvim
+	autocrlf = input
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[push]
+	default = simple
+
+[color]
+	ui = auto
+
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+	cp = cherry-pick
+	df = diff
+	lg = log --oneline --decorate --graph --all
+	unstage = reset HEAD --
+	last = log -1 HEAD
