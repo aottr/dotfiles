@@ -1,0 +1,69 @@
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 4
+final_space = true
+
+[transient_prompt]
+  template = '❯ '
+  foreground = 'magenta'
+  foreground_templates = [
+    '{{ if gt .Code 0 }}red{{ end }}',
+  ]
+  background = 'transparent'
+
+[upgrade]
+  source = 'cdn'
+  interval = '168h'
+  auto = false
+  notice = false
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'path'
+    template = '{{ .Path }} '
+    style = 'plain'
+    foreground = 'blue'
+
+    [blocks.segments.properties]
+      style = 'full'
+ 
+  [[blocks.segments]]
+    type = 'git'
+    template = '''{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ 
+    end }} <cyan>{{ if gt .Behind 0}}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'''
+    style = 'plain'
+    foreground = '#6c6c6c'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      commit_icon = '@'
+      fetch_status = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    template = '❯'
+    style = 'plain'
+    foreground = 'magenta'
+    foreground_templates = [
+      '{{ if gt .Code 0 }}red{{ end }}'
+    ]
+
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    foreground = 'yellow'
+    template = '{{ .FormattedMs }}'
+
+    [blocks.segments.properties]
+      threashold = 2000
