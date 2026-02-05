@@ -1,13 +1,27 @@
 [user]
-	name = A Ottr
+	name = A. Ottr
 	email = alex@ottr.foo
-
+	signingKey = "B899892A9D13D8A761B5F3E0E3DC722E2943A517"
 [core]
+	compression = 9
 	editor = nvim
 	autocrlf = input
 
 [init]
 	defaultBranch = main
+[status]
+	branch = true
+	showStash = true
+	# showUntrackedFiles = all
+
+[advice]
+	statusHints = false
+[gpg]
+	program = "gpg"
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
 
 [pull]
 	rebase = false

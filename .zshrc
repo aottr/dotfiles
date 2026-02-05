@@ -1,3 +1,5 @@
+export PATH=$PATH:/home/alex/.local/bin
+
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.toml)"
 
 # History
